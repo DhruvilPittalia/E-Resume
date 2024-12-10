@@ -1,0 +1,385 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern and clean font */
+    background-color: #121212; /* Dark background */
+    color: #d0d0d0; /* Light grey text */
+    line-height: 1.6;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #1f1f1f; /* Dark grey background */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.navbar .logo {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #4caf50; /* Dark teal logo */
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+    color: #388e3c; /* Lighter teal when hovered */
+}
+
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar .menu li a {
+    text-decoration: none;
+    color: #d0d0d0; /* Light grey text */
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar .menu li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #4caf50; /* Dark teal underline */
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.navbar .menu li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navbar .menu li a:hover {
+    color: #4caf50; /* Dark teal when hovered */
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .menu {
+        flex-direction: column;
+        gap: 15px;
+        padding-left: 0;
+    }
+
+    .navbar .menu li a {
+        font-size: 1.5em;
+        padding: 8px 16px;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Home Section */
+.content {
+    margin-top: 100px; /* Account for navbar */
+    padding: 50px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+}
+
+.profile-photo-container {
+    text-align: center;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(191, 237, 177, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.profile-info h1 {
+    font-size: 2em;
+    color: #4caf50; /* Dark teal for name */
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.profile-info p {
+    font-size: 1.3em;
+    color: #b0bec5; /* Light grey text */
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: center;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4caf50; /* Dark teal button */
+    color: #121212; /* Dark text */
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #388e3c; /* Darker teal on hover */
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f1f1f; /* Dark grey footer */
+    color: #d0d0d0;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 50px;
+    margin-top: 100px; /* Account for navbar */
+    text-align: center;
+}
+
+.projects-section h1 {
+    font-size: 2.8em;
+    color: #4caf50; /* Dark teal for titles */
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.projects-section p {
+    color: #b0bec5; /* Light grey for project descriptions */
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.projects-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #333333; /* Dark card background */
+    border-radius: 12px;
+    width: 400px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 20px;
+    color: #d0d0d0; /* Light grey text */
+}
+
+.project-info h2 {
+    font-size: 1.8em;
+    color: #4caf50; /* Dark teal for project titles */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.project-info p {
+    font-size: 1.1em;
+    color: #b0bec5; /* Light grey text for descriptions */
+    line-height: 1.6;
+}
+
+/* Add a hover effect on the cards */
+.project-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+}
+/* contact section */
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.contact-details, .social-media {
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+    min-width: 300px;
+}
+
+h2 {
+    color:#4caf50;
+    margin-bottom: 15px;
+}
+
+a {
+    color:#4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Form Section */
+.form-container {
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #b0bec5;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #6C757D;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%;
+    background-color:  #333333;
+    color: #b0bec5;
+}
+
+input:focus, textarea:focus {
+    border-color: #b0bec5;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FFC107;
+    color: #212529;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #E0A800;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-details, .social-media {
+        max-width: 90%;
+    }
+}
